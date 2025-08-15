@@ -9,12 +9,46 @@ let opciones =  document.querySelectorAll(".boton-opcion");
 
 
 // Ahora empezamos agregando funcionalidad cuando damos click en jugar
+botonJugar.addEventListener("click"), () => {
+    opciones.forEach((opcion) => {
+        opcion.removeAttribute("disabled");
 
+    })
+    jugador.textContent = "?";
+    computadora.textContent = "?";
+}
 
 
 
 // Luego creemos la funcionalidad cuando seleccionemos una opcion
+let miOpcion = "";
+let emojis = {
+    piedra: "👊",
+    tijeras: "✌️",
+    papel: "🖐️"
+}
 
+// emojis["piedra"] => 👊
+
+let opcionesComputadora = ["piedra", "tijeras", "papel"]
+//opcionesComputadora[0] => piedra
+//opcionesComputadora[1] => papel
+
+
+opciones.forEach((opcion) =>  {
+    opcion.addEventListener("click", () => {
+        miOpcion = opcion.getAttribute("id")
+        jugador.textContent = emojismojis[miOpcion];
+
+        // La computadora elige
+        let numeroAleatorio = Math.floor(Math.ramdom() * 3) = opcionesComputadora[numeroAleatorio];
+        
+        computadora.textContent =emojis[eleccionComputadora];
+
+        
+        
+    })
+})
 
 
 
