@@ -21,6 +21,7 @@ botonJugar.addEventListener("click", () => {
 
 
 // Luego creemos la funcionalidad cuando seleccionemos una opcion
+
 let miOpcion = "";
 let emojis = {
     piedra: "👊",
@@ -28,7 +29,7 @@ let emojis = {
     papel: "🖐️"
 }
 
-// emojis["piedra"] => 👊
+// Computadora
 
 let opcionesComputadora = ["piedra", "tijeras", "papel"]
 //opcionesComputadora[0] => piedra
@@ -41,19 +42,19 @@ opciones.forEach((opcion) =>  {
         jugador.textContent = emojis[miOpcion];
 
         // La computadora elige
-        let numeroAleatorio = Math.floor(Math.ramdom() * 3) 
+        let numeroAleatorio = Math.floor(Math.random() * 3) 
         let eleccionComputadora = opcionesComputadora[numeroAleatorio];
         
         computadora.textContent = emojis[eleccionComputadora];
 
         if (miOpcion == eleccionComputadora) {
-            resultado.textContent = "EMPATE!";
-        } else if ((miOpcion == "piedra" && eleccionComputadora == "tijeras") ||
+            resultado.textContent = "EMPATE";
+        } else if ((miOpcion == "piedra" && eleccionComputadora == "tijeras") || // ||= o
                    (miOpcion == "tijeras" && eleccionComputadora == "papel") ||
                    (miOpcion == "papel" && eleccionComputadora == "piedra")) {
-                    resultado.textContent = "GANASTE!";
+                    resultado.textContent = "GANASTE";
                    } else {
-                    resultado.textContent = "PERDISTE!";
+                    resultado.textContent = "PERDISTE";
                    }
 
         
