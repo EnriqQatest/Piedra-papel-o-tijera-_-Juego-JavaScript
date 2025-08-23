@@ -5,6 +5,11 @@ let jugador = document.querySelector("#emojiJugador");
 let computadora = document.querySelector("#emojiComputadora");
 let resultado = document.querySelector("#versus");
 let opciones =  document.querySelectorAll(".boton-opcion");
+let puntajeJugador = document.querySelector("#puntosJugador");
+let puntajeComputadora = document.querySelector("#puntosComputadora");
+let contadorJugador = 0;
+let contadorComputadora = 0;
+
 
 
 
@@ -53,14 +58,17 @@ opciones.forEach((opcion) =>  {
                    (miOpcion == "tijeras" && eleccionComputadora == "papel") ||
                    (miOpcion == "papel" && eleccionComputadora == "piedra")) {
                     resultado.textContent = "GANASTE";
+                    contadorJugador++;
+                    puntajeJugador.textContent = contadorJugador;
                    } else {
                     resultado.textContent = "PERDISTE";
-                   }
-
-        
-        
+                    contadorComputadora++;
+                    puntajeComputadora.textContent = contadorComputadora;
+                   }    
     })
 })
+
+
 
 
 
