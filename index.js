@@ -10,9 +10,31 @@ let puntajeComputadora = document.querySelector("#puntosComputadora");
 let contadorJugador = 0;
 let contadorComputadora = 0;
 
+       //Desabilitar botones cuando el juego termina
+function finalizarJuego() {
+    opciones.forEach((opcion) => {
+        opcion.setAttribute("disabled", true);
+
+    }) 
+}
+
+//boton jugar
+botonJugar.addEventListener("click", () => {
+    //reset emojis y resultado
+    jugador.textContent = "?";
+    computadora.textContent = "?";
+    resultado.textContent = "VS";
+
+    
+    if (contadorJugador < 5 && contadorComputadora < 5) {
+        opciones.forEach((opcion) => {
+            opcion.removeAttribute("disabled");
+        });
+    }
+});
 
 
-
+/*
 // Ahora empezamos agregando funcionalidad cuando damos click en jugar
 botonJugar.addEventListener("click", () => {
     opciones.forEach((opcion) => {
@@ -21,7 +43,10 @@ botonJugar.addEventListener("click", () => {
     })
     jugador.textContent = "?";
     computadora.textContent = "?";
-})
+})*/
+
+ 
+
 
 
 
@@ -46,6 +71,7 @@ opciones.forEach((opcion) =>  {
         miOpcion = opcion.getAttribute("id")
         jugador.textContent = emojis[miOpcion];
 
+
         // La computadora elige
         let numeroAleatorio = Math.floor(Math.random() * 3) 
         let eleccionComputadora = opcionesComputadora[numeroAleatorio];
@@ -64,7 +90,15 @@ opciones.forEach((opcion) =>  {
                     resultado.textContent = "PERDISTE";
                     contadorComputadora++;
                     puntajeComputadora.textContent = contadorComputadora;
-                   }    
+                   }  
+                   // Verifica si alguien llega a 5 puntos
+                   if (contadorJugador ===5) {
+                    resultado.textContent = "FELICITACIONES, GANASTE EL JUEGO";
+                    finalizarJuego();
+                   } else if (contadorComputadora ===5){
+                    resultado.textContent = "LO SIENTO, PERDISTE";
+                   }
+                    finalizarJuego();
     })
 })
 
